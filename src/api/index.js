@@ -7,6 +7,8 @@ const api = {
   SendSms: '/account/sms',
   SendSmsErr: '/account/sms_err',
   // get my info
-  UserInfo: '/user/info'
+  UserInfo: '/user/info',
+  //h3yun
+  h3yunBranch: '/h3yun/branch'
 }
 export default api

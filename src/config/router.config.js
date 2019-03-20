@@ -17,26 +17,26 @@ export const asyncRouterMap = [
         name: 'dashboard',
         redirect: '/dashboard/workplace',
         component: RouteView,
-        meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
+        meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'other' ] },
         children: [
           {
             path: '/dashboard/analysis',
             name: 'Analysis',
             component: () => import('@/views/dashboard/Analysis'),
-            meta: { title: '分析页', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: '分析页', keepAlive: false, permission: [ 'other' ] }
           },
           {
             path: '/dashboard/monitor',
             name: 'Monitor',
-            hidden: true,
             component: () => import('@/views/dashboard/Monitor'),
-            meta: { title: '监控页', keepAlive: true, permission: [ 'dashboard' ] }
+            meta: { title: '监控页', keepAlive: true, permission: [ 'other' ] }
           },
           {
             path: '/dashboard/workplace',
             name: 'Workplace',
+            hidden: true,
             component: () => import('@/views/dashboard/Workplace'),
-            meta: { title: '工作台', keepAlive: true, permission: [ 'dashboard' ] }
+            meta: { title: '工作台', keepAlive: true, permission: [ 'other' ] }
           }
         ]
       },
@@ -46,6 +46,7 @@ export const asyncRouterMap = [
         path: '/form',
         redirect: '/form/base-form',
         component: PageView,
+        hidden:true,
         meta: { title: '表单页', icon: 'form', permission: [ 'form' ] },
         children: [
           {
@@ -74,6 +75,7 @@ export const asyncRouterMap = [
         path: '/list',
         name: 'list',
         component: PageView,
+        hidden:true,
         redirect: '/list/query-list',
         meta: { title: '列表页', icon: 'table', permission: [ 'table' ] },
         children: [
@@ -167,6 +169,7 @@ export const asyncRouterMap = [
         path: '/profile',
         name: 'profile',
         component: RouteView,
+        hidden:true,
         redirect: '/profile/basic',
         meta: { title: '详情页', icon: 'profile', permission: [ 'profile' ] },
         children: [
@@ -190,6 +193,7 @@ export const asyncRouterMap = [
         path: '/result',
         name: 'result',
         component: PageView,
+        hidden:true,
         redirect: '/result/success',
         meta: { title: '结果页', icon: 'check-circle-o', permission: [ 'result' ] },
         children: [
@@ -213,6 +217,7 @@ export const asyncRouterMap = [
         path: '/exception',
         name: 'exception',
         component: RouteView,
+        hidden:true,
         redirect: '/exception/403',
         meta: { title: '异常页', icon: 'warning', permission: [ 'exception' ] },
         children: [
@@ -242,6 +247,7 @@ export const asyncRouterMap = [
         path: '/account',
         component: RouteView,
         redirect: '/account/center',
+        hidden:true,
         name: 'account',
         meta: { title: '个人页', icon: 'user', keepAlive: true, permission: [ 'user' ] },
         children: [
@@ -299,6 +305,7 @@ export const asyncRouterMap = [
         path: '/other',
         name: 'otherPage',
         component: PageView,
+        hidden:true,
         meta: { title: '其他组件', icon: 'slack', permission: [ 'dashboard' ] },
         redirect: '/other/icon-selector',
         children: [
@@ -308,6 +315,24 @@ export const asyncRouterMap = [
             component: () => import('@/views/other/IconSelectorView'),
             meta: { title: 'IconSelector', keepAlive: true, permission: [ 'dashboard' ] }
           }
+        ]
+      },
+
+      //解锁流
+      {
+        path: '/h3yun',
+        name: 'h3yun',
+        redirect: '/h3yun/tfs-branch',
+        hidden:true,
+        component: PageView,
+        meta: { title: '氚云操作', keepAlive: true, icon: bxAnaalyse, permission: [ 'other' ] },
+        children: [
+          {
+            path: '/h3yun/tfs-branch',
+            name: 'tfsBranch',
+            component: () => import('@/views/h3yun/tfsBranch'),
+            meta: { title: '解锁流', keepAlive: true, permission: [ 'other' ] }
+          },
         ]
       }
     ]

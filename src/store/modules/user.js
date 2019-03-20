@@ -3,6 +3,36 @@ import { login, getInfo, logout } from '@/api/login'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 import { welcome } from '@/utils/util'
 
+const role ={
+  "permissions": [
+    {
+      "roleId": "admin",
+      "permissionId": "usermanage",
+      "permissionName": "用户管理"
+    },
+    {
+      "roleId": "admin",
+      "permissionId": "other",
+      "permissionName": "其他"
+    },
+    {
+      "roleId": "admin",
+      "permissionId": "devopsmanage",
+      "permissionName": "发版管理"
+    },
+    {
+      "roleId": "admin",
+      "permissionId": "exception",
+      "permissionName": "异常页面权限"
+    },
+    {
+      "roleId": "admin",
+      "permissionId": "result",
+      "permissionName": "结果权限"
+    }
+  ]
+}
+
 const user = {
   state: {
     token: '',
